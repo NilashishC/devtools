@@ -49,6 +49,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Print
+        run: env | sort
+
       - name: Add PR to 'devtools' project
         uses: actions/add-to-project@main
         with:
@@ -56,6 +59,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           # labeled: skip-changelog
           # label-operator: NOT
+          
 
       # - name: Auto-approve pull-requests made by approved bots
       #   # https://github.com/marketplace/actions/auto-approve
