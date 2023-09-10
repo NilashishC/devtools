@@ -19,6 +19,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Print
+        run: env | sort
+
       # Use of release drafter action for adding semantic labels based on
       # either title, body or source branch name. We ignore potential failure
       # of this step.
@@ -48,9 +51,6 @@ jobs:
         uses: release-drafter/release-drafter@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Print
-        run: env | sort
 
       - name: Add PR to 'devtools' project
         uses: actions/add-to-project@main
